@@ -55,7 +55,7 @@ export const CharacterCounter = ({ minWords, maxWords, targetReadingTime }: Char
   return (
     <>
       <TextInput onTextChange={handleTextChange} placeholder='Start typing your content here' initialValue={text}></TextInput>
-      <StatsDisplay stats={{characterCount: text.length, wordCount: text.split(" ").length, readingTime: Math.floor(text.split(" ").length / 3)}} showReadingTime={true}></StatsDisplay>
+      <StatsDisplay stats={{characterCount: text.length, wordCount: (text.length ? text.trim().split(" ").length : 0), readingTime: Math.floor(text.split(" ").length / 3)}} showReadingTime={true}></StatsDisplay>
       <div>MIN WORDS: {minWords}, MAX WORDS: {maxWords}, TARGET READING TIME: {targetReadingTime} </div>
     </>
   )
