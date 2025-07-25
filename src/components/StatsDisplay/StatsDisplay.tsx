@@ -7,10 +7,14 @@ import { secondsToHourMinuteSecondString } from '../../utils/utils';
 
 //convert seconds into 0:00 count.
 
-export const StatsDisplay = ({stats, showReadingTime}: StatsDisplayProps) => {
+export const StatsDisplay = ({ stats, showReadingTime }: StatsDisplayProps) => {
   return (
     <>
-    <div>CHARACTER COUNT: {stats.characterCount}, WORD COUNT: {stats.wordCount}, {showReadingTime ? `READING TIME (IN MINUTES) ${secondsToHourMinuteSecondString(stats.readingTime)}` : ''}</div>
+      <div>
+        <p>CHARACTER COUNT: {stats.characterCount}</p>
+        <p>WORD COUNT: <span id='word-count'>{stats.wordCount}</span></p>
+        <p>{showReadingTime ? `READING TIME (IN MINUTES)` : ''}<span id='time-count'>{secondsToHourMinuteSecondString(stats.readingTime)}</span></p>
+      </div>
     </>
   )
 }
