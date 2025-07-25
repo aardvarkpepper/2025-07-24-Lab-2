@@ -48,6 +48,11 @@ export const CharacterCounter = ({ minWords, maxWords, targetReadingTime }: Char
 
   //event: React.ChangeEvent<HTMLInputElement>
   const handleTextChange = (stringInput: string) => {
+    const maxLength=2000;
+    if (stringInput.length >= maxLength) {
+      stringInput = stringInput.slice(-maxLength);
+      //console.log(stringInput);
+    }
     // when this changes, get character count, wordcount, reading time. (Math.floor(words/3))
     // character count = stringInput.length; wordCount = stringInput.split(" ").length;
     // reading time = Math.floor(wordCount/3)
@@ -74,8 +79,10 @@ export const CharacterCounter = ({ minWords, maxWords, targetReadingTime }: Char
         (timeCountElement as HTMLElement).style.color = "red";
       }
     }
+    const textAreaInput = document.getElementById('textarea-input');
 
     setText(stringInput);
+    (textAreaInput as HTMLTextAreaElement).value = stringInput;
   }
 
 

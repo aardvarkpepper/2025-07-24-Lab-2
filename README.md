@@ -6,11 +6,11 @@ useState was used in CharacterCounter for 'text'.  'setText' was used in a funct
 
 2.  What considerations did you make when calculating reading time?
 
-Testing values in assignment example indicated reading time = Math.floor(wordcount / 3).  Probably I changed reading time to convert seconds over 60 into minutes, etc.
+Testing values in assignment example indicated reading time in seconds = Math.floor(wordcount / 3).  Following assignment example to show hour/minute/seconds, I passed time in seconds despite assignment comment stating property time passed is in minutes.  No sense in converting twice.
 
 3.  How did you ensure the UI remained responsive during rapid text input?
 
-I made no specific accommodation for rapid text entry.  DOM operations are expensive, but neither those nor the calculations required use much time.  I saw no delay in processing when copying and pasting a Wikipedia article (2936 words).  I copied and pasted the entire American King James version of the Bible, seeing perhaps a third of second or less of delay (4,509,524 character count, 796,876 word count, 265625 reading time).  That is, UI responsiveness for rapid text input seems not to be an issue for most expected situations.
+I made no specific accommodation for rapid text entry.  DOM operations are expensive, but not so expensive that rapid text entry is an issue, even accounting for calculation time.  I saw no delay in processing when copying and pasting a Wikipedia article (2936 words).  I copied and pasted the entire American King James version of the Bible, seeing perhaps a third of second or less of delay (4,509,524 character count, 796,876 word count, 265625 reading time).  UI responsiveness for rapid text input seems not to be an issue for most expected situations.
 
 4.  What challenges did you face when implementing the statistics calculations?
 
@@ -18,7 +18,9 @@ No challenges.
 
 ## Comment
 
-Assignment required handling edge cases (empty and long inputs) through state management.  There wasn't really an edge case for long inputs.  There was no specified behavior of how to handle long inputs, and long inputs weren't really an issue (character count output, word count output, and reading time output weren't impacted, textarea allows plenty of user control and the user even has control over the size of the textarea to boot).  Could have popped a maxlength in the textarea to prevent lengthy inputs, but that's not state management.  Could have declared a new state to specify maxlength, but handling maxlength with a separate state is odd.  I just left it.
+Handling long inputs through state management is, I think, not intuitive, and might as well just set maxlength.  At any rate, it is done.  In CharacterCounter, handleTextChange, maxLength = 2000.  Exceeding that length removes characters from the beginning of the input so new characters can be accommodated.
+
+Changing maxLength or removing it and the conditional using maxLength removes the character limit.
 
 ## Resources
 
@@ -30,3 +32,5 @@ https://react.dev/learn/render-and-commit
 https://openbible.com/textfiles/akjv.txt
 https://www.geeksforgeeks.org/reactjs/how-to-set-text-color-in-reactjs/
 https://www.typescriptlang.org/docs/handbook/dom-manipulation.html
+https://react.dev/reference/react-dom/components/textarea
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLTextAreaElement

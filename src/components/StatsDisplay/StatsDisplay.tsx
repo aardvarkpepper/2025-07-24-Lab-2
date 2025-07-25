@@ -12,7 +12,7 @@ export const StatsDisplay = ({ stats, showReadingTime }: StatsDisplayProps) => {
     <>
       <div>
         <p>CHARACTER COUNT: {stats.characterCount}</p>
-        <p>WORD COUNT: <span id='word-count'>{stats.wordCount}</span></p>
+        <p>WORD COUNT: <span id='word-count' >{stats.wordCount}</span></p>
         <p>{showReadingTime ? `READING TIME (IN MINUTES)` : ''}<span id='time-count'>{secondsToHourMinuteSecondString(stats.readingTime)}</span></p>
       </div>
     </>
