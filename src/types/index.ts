@@ -7,7 +7,7 @@ export interface TextInputProps {
 export interface TextStats {
   characterCount: number;
   wordCount: number;
-  readingTime: number; // in minutes
+  readingTime: number; // in minutes - actually seconds, for ease of conversion, and to comply with assignment example.
 }
  
 export interface StatsDisplayProps {
@@ -18,5 +18,5 @@ export interface StatsDisplayProps {
 export interface CharacterCounterProps {
   minWords?: number;
   maxWords?: number;
-  targetReadingTime?: number; // in minutes
+  targetReadingTime?: number; // in minutes - edit:  actually, not in minutes
 }

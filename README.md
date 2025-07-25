@@ -1,69 +1,10 @@
-# React + TypeScript + Vite
+## Comment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Assignment required handling edge cases (empty and long inputs) through state management.  Could say calculations of outputs required edge case for empty input.  But there wasn't really an edge case for long inputs.  There was no specified behavior of how to handle long inputs, and long inputs weren't really an issue (character count output, word count output, and reading time output weren't impacted, textarea allows plenty of user control and the user even has control over the size of the textarea to boot).  Could have popped a maxlength in the textarea to prevent lengthy inputs, but that's not state management.  Could have declared a new state to specify maxlength, but handling maxlength with a separate state is odd.  I just left it.
 
-Currently, two official plugins are available:
+## Resources
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+https://www.geeksforgeeks.org/reactjs/react-onchange-event/
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/placeholder
+https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/forms_and_events/
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/textarea
