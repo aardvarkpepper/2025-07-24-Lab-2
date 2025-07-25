@@ -1,12 +1,10 @@
 import type { TextStats, StatsDisplayProps } from '../../types';
+// 'TextStats' is declared but never used.  This is odd too.
 
-// export interface TextStats {
-//   characterCount: number;
-//   wordCount: number;
-//   readingTime: number; // in minutes
-// }
- 
-// export interface StatsDisplayProps {
-//   stats: TextStats;
-//   showReadingTime?: boolean;
-// }
+export const StatsDisplay = ({stats, showReadingTime}: StatsDisplayProps) => {
+  return (
+    <>
+    <div>CHARACTER COUNT: {stats.characterCount}, WORD COUNT: {stats.wordCount}, {showReadingTime ? `READING TIME (IN MINUTES): ${stats.readingTime}` : ''}</div>
+    </>
+  )
+}
