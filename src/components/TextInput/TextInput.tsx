@@ -5,9 +5,10 @@ import type { TextInputProps } from '../../types';
 //   placeholder?: string;
 //   initialValue?: string;
 // }
-export const TextInput = (props: TextInputProps) => {
+export const TextInput = ({onTextChange, placeholder, initialValue}: TextInputProps) => {
   return (
     <>
+    <input type='text' onChange={(event) => {onTextChange(event.target.value)}} placeholder={placeholder ? placeholder : ''} value={initialValue ? initialValue : ''}/>
     </>
   )
 }
